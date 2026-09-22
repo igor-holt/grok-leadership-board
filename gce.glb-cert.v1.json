@@ -1,0 +1,27 @@
+{
+  "schema": "gce.glb-cert.v1",
+  "payload": {
+    "type": "glb_authenticity_cert",
+    "issuer": "GLB / Genesis Conductor",
+    "orcid": "0009-0008-8389-1297",
+    "subject": { "user_id": "string|null", "handle": "string", "name": "string|null", "auth": "oauth|claim|seed" },
+    "primary_level": "L0-L8",
+    "score": "0-100",
+    "confidence": "0-1",
+    "stacked": {
+      "vs_visible_builders": "upper|distinctive_niche|median",
+      "vs_all_users": "unknown_private_volume",
+      "vs_advanced_capacity": "0-1",
+      "advanced_ceiling": "number",
+      "capacity_gap": "number"
+    },
+    "landauer_note": "public-evidence only; no private usage log"
+  },
+  "envelope": {
+    "type": "glb_cert_envelope",
+    "alg": "AES-256-GCM+PBKDF2-SHA256",
+    "digest": "sha256 hex of canonical payload",
+    "merkle_leaf": "sha256(digest|user_id|handle)",
+    "onchain_anchor": { "method": "post_hash_only", "hash": "digest" }
+  }
+}
